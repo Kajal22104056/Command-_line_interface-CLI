@@ -437,18 +437,6 @@ section {
   background: rgba(255, 255, 255, 0.03);
 }
 
-.bullets {
-  display: grid;
-  gap: 12px;
-}
-
-.bullet {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 16px 18px;
-}
-
 .footer {
   border-top: 1px solid var(--line);
   padding: 28px 0 40px;
