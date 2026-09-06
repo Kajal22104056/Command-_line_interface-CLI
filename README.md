@@ -83,15 +83,6 @@ Command-_line_interface-CLI
 ├── assets/           # Website styles and interactive demo
 └── README.md
 ```
-
----
-
-## Resume bullets
-
-- Built a Python CLI task manager with argparse subcommands for add, list, complete, delete, search, and priority-based sorting.
-- Implemented persistent file storage and input validation so invalid dates never corrupt saved tasks.
-- Shipped a live GitHub Pages demo so reviewers can try the workflow in the browser.
-
 ---
 
 ## Tech
