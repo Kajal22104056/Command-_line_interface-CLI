@@ -231,13 +231,39 @@ h1 {
   font-size: 0.78rem;
 }
 
+.term-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: #0c1118;
+}
+
+.term-actions button {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cyan);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.term-actions button:hover {
+  border-color: rgba(110, 231, 255, 0.4);
+  background: rgba(110, 231, 255, 0.1);
+}
+
 .term-body {
-  min-height: 360px;
-  max-height: 420px;
+  min-height: 280px;
+  max-height: 360px;
   overflow: auto;
   padding: 18px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.86rem;
+  cursor: text;
 }
 
 .term-line {
@@ -261,17 +287,44 @@ h1 {
 
 .term-input-row {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--line);
+  background: #0c1118;
+}
+
+.term-input-row .prompt {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  white-space: nowrap;
 }
 
 .term-input {
   flex: 1;
-  background: transparent;
-  border: 0;
+  min-width: 0;
+  background: #070b10;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   outline: none;
   color: var(--text);
-  font: inherit;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.86rem;
+  padding: 10px 12px;
+}
+
+.term-input:focus {
+  border-color: rgba(61, 255, 138, 0.45);
+}
+
+.run-btn {
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: #052012;
+  font-weight: 700;
+  padding: 10px 14px;
+  cursor: pointer;
 }
 
 section {

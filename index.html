@@ -34,9 +34,9 @@
         <div>
           <div class="kicker">Python · CLI · File Persistence</div>
           <h1>Task Manager that lives in the terminal.</h1>
-          <p class="lead">A clean command-line utility for adding, searching, completing, and prioritizing tasks. Built with argparse, color-coded output, and a local text store that survives every session.</p>
+          <p class="lead">A clean command-line utility for adding, searching, completing, and prioritizing tasks. The terminal on the right is a working demo — tap a command or type one and press Run.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#demo">Try the live demo</a>
+            <a class="btn btn-primary" href="#demo">Try the working CLI</a>
             <a class="btn btn-ghost" href="https://github.com/Kajal22104056/Command-_line_interface-CLI" target="_blank" rel="noreferrer">View source</a>
           </div>
           <div class="stats">
@@ -49,12 +49,22 @@
         <div class="terminal" id="demo">
           <div class="term-bar">
             <div class="dots"><i></i><i></i><i></i></div>
-            <div class="term-title">live demo · no install needed</div>
+            <div class="term-title">working CLI · tap a command or type + Enter</div>
+          </div>
+          <div class="term-actions" id="term-actions">
+            <button type="button" data-run="list --show-completed">list</button>
+            <button type="button" data-run='add "Ship portfolio" --priority high --due-date 2026-09-20'>add</button>
+            <button type="button" data-run="complete 1">complete 1</button>
+            <button type="button" data-run="search resume">search</button>
+            <button type="button" data-run="prioritize">prioritize</button>
+            <button type="button" data-run="help">help</button>
+            <button type="button" data-run="reset">reset</button>
           </div>
           <div class="term-body" id="term-output"></div>
-          <form class="term-input-row" id="term-form" style="padding: 0 18px 16px;">
-            <span class="prompt">%</span>
-            <input class="term-input" id="term-input" autocomplete="off" spellcheck="false" placeholder='list --show-completed'>
+          <form class="term-input-row" id="term-form">
+            <span class="prompt">kajal@cli %</span>
+            <input class="term-input" id="term-input" autocomplete="off" spellcheck="false" placeholder='add "New task" --priority high'>
+            <button class="run-btn" type="submit">Run</button>
           </form>
         </div>
       </div>
