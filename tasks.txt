@@ -1,0 +1,5 @@
+Submit assignment | High | 2026-09-10
+Prepare for interview | High | 2026-09-15
+Update resume | Medium | 2026-09-12
+Read argparse docs | Low | No Due Date
+[Completed] Setup Python environment | Medium | 2026-09-01

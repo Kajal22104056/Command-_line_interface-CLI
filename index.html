@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager CLI | Python Command-Line Project</title>
+  <meta name="description" content="A Python CLI task manager with argparse, priority sorting, due dates, search, ANSI colors, and file-based persistence. Built for resume and interviews.">
+  <meta name="theme-color" content="#07090d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span>
+        task_manager.py
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#commands">Commands</a>
+        <a href="#resume">Resume</a>
+      </nav>
+      <a class="btn btn-ghost" href="https://github.com/Kajal22104056/Command-_line_interface-CLI" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="kicker">Python · CLI · File Persistence</div>
+          <h1>Task Manager that lives in the terminal.</h1>
+          <p class="lead">A clean command-line utility for adding, searching, completing, and prioritizing tasks. Built with argparse, color-coded output, and a local text store that survives every session.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#demo">Try the live demo</a>
+            <a class="btn btn-ghost" href="https://github.com/Kajal22104056/Command-_line_interface-CLI" target="_blank" rel="noreferrer">View source</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>6</strong><span>CLI commands</span></div>
+            <div class="stat"><strong>0</strong><span>external dependencies</span></div>
+            <div class="stat"><strong>1</strong><span>file for persistence</span></div>
+          </div>
+        </div>
+
+        <div class="terminal" id="demo">
+          <div class="term-bar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="term-title">live demo · no install needed</div>
+          </div>
+          <div class="term-body" id="term-output"></div>
+          <form class="term-input-row" id="term-form" style="padding: 0 18px 16px;">
+            <span class="prompt">%</span>
+            <input class="term-input" id="term-input" autocomplete="off" spellcheck="false" placeholder='list --show-completed'>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Built like a real CLI product</h2>
+          <p>Every command maps to a practical workflow: capture work, sort by urgency, search fast, and keep history on disk.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="chip">add</span>
+            <h3>Priority + due dates</h3>
+            <p>Create tasks with Low, Medium, or High priority and optional YYYY-MM-DD deadlines.</p>
+          </article>
+          <article class="card">
+            <span class="chip">list</span>
+            <h3>Color-coded output</h3>
+            <p>High is red, Medium is yellow, Low is green. Completed tasks stay hidden unless you ask.</p>
+          </article>
+          <article class="card">
+            <span class="chip">prioritize</span>
+            <h3>Smart sorting</h3>
+            <p>Orders pending work by priority first, then the nearest due date.</p>
+          </article>
+          <article class="card">
+            <span class="chip">search</span>
+            <h3>Keyword lookup</h3>
+            <p>Finds matches across pending and completed lists without leaving the terminal.</p>
+          </article>
+          <article class="card">
+            <span class="chip">complete / delete</span>
+            <h3>Safe mutations</h3>
+            <p>Validates task numbers before updating state, then writes the store back to disk.</p>
+          </article>
+          <article class="card">
+            <span class="chip">tasks.txt</span>
+            <h3>Persistent storage</h3>
+            <p>Plain-text format, UTF-8, no database, no dependencies. Easy to inspect and version.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How the system works</h2>
+          <p>A small, readable pipeline that interviewers can follow in one sitting.</p>
+        </div>
+        <div class="flow">
+          <div class="step"><span>01</span><h3>Parse</h3><p class="muted">argparse builds subcommands, flags, and validated due dates.</p></div>
+          <div class="step"><span>02</span><h3>Load</h3><p class="muted">tasks.txt is split into pending and completed records.</p></div>
+          <div class="step"><span>03</span><h3>Act</h3><p class="muted">Add, list, complete, delete, search, or sort in memory.</p></div>
+          <div class="step"><span>04</span><h3>Save</h3><p class="muted">Only successful writes persist, so bad input never corrupts the file.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="commands">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Commands you can put in a demo</h2>
+          <p>Clone the repo, then run these from the project folder.</p>
+        </div>
+        <div class="commands">
+          <div class="command">
+            <div>
+              <code>python3 task_manager.py add "Ship portfolio" --priority high --due-date 2026-09-20</code>
+              <p class="muted">Add a high-priority task with a deadline.</p>
+            </div>
+            <button class="copy" data-copy='python3 task_manager.py add "Ship portfolio" --priority high --due-date 2026-09-20'>Copy</button>
+          </div>
+          <div class="command">
+            <div>
+              <code>python3 task_manager.py list --show-completed</code>
+              <p class="muted">Show pending work and finished tasks together.</p>
+            </div>
+            <button class="copy" data-copy="python3 task_manager.py list --show-completed">Copy</button>
+          </div>
+          <div class="command">
+            <div>
+              <code>python3 task_manager.py prioritize</code>
+              <p class="muted">Sort by High → Medium → Low, then due date.</p>
+            </div>
+            <button class="copy" data-copy="python3 task_manager.py prioritize">Copy</button>
+          </div>
+          <div class="command">
+            <div>
+              <code>python3 task_manager.py search resume</code>
+              <p class="muted">Find tasks by keyword across both lists.</p>
+            </div>
+            <button class="copy" data-copy="python3 task_manager.py search resume">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Tech stack</h2>
+          <p>Standard library only. That is a feature, not a limitation.</p>
+        </div>
+        <div class="tech">
+          <span>Python 3</span>
+          <span>argparse</span>
+          <span>datetime</span>
+          <span>ANSI colors</span>
+          <span>File I/O</span>
+          <span>GitHub Pages</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Ready-to-use resume bullets</h2>
+          <p>Copy these directly. They describe what the project actually does.</p>
+        </div>
+        <div class="bullets">
+          <div class="bullet">Built a Python CLI task manager with argparse subcommands for add, list, complete, delete, search, and priority-based sorting.</div>
+          <div class="bullet">Implemented persistent file storage and input validation so tasks survive sessions and invalid due dates never corrupt the store.</div>
+          <div class="bullet">Designed ANSI color-coded output and a live browser demo so reviewers can try the workflow without installing Python.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div>Task Manager CLI · Kajal</div>
+    <div>Live site + source on <a href="https://github.com/Kajal22104056/Command-_line_interface-CLI" target="_blank" rel="noreferrer">GitHub</a></div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
